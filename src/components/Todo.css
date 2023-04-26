@@ -1,1 +1,184 @@
+#main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h1{
+font-family: 'Monda';
+font-style: normal;
+font-weight: 700;
+font-size: 48px;
+line-height: 78px;
+letter-spacing: 0.25em;
+color: #000000;
+}
 
+ul{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+li{
+list-style-type:decimal;
+font-family: 'Monda';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 29px;
+color: #000000;
+margin-top: 10px;
+}
+
+#taskInput{
+border: none;
+width: 516px;
+height: 51px;
+background: #C4C4C4;
+font-family: 'Monda';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 29px;
+color: #000000;
+}
+#taskInp::placeholder{
+ padding-left: 10px;
+ color: #3E3B3B;
+}
+#taskInput::placeholder{
+  color: #3E3B3B;
+  padding-left: 10px;
+}
+
+#checkDiv{
+display: flex;
+align-items: center;
+}
+#check{
+  margin-right:30px;
+}
+#doneBtn{
+width: 110px;
+height: 35px;
+margin-top: 10px;
+background: #C4C4C4;
+border: none;
+border-radius: 25px;
+cursor: pointer;
+font-family: 'Monda';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 22px;
+color: #000000;
+margin: 2px;
+}
+
+#doneBtn:hover{
+  background: #3E3B3B;
+  color:#C4C4C4;
+}
+
+#doneBtn:active{
+  transform: translateY(1px); 
+ }
+ 
+
+.buttons{
+width: 70px;
+height: 25px;
+margin-top: 10px;
+background: #C4C4C4;
+border: none;
+border-radius: 25px;
+cursor: pointer;
+font-family: 'Monda';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 22px;
+color: #000000;
+margin: 2px;
+}
+
+.buttons:hover{
+  background: #3E3B3B;
+  color:#C4C4C4;
+}
+
+#emptybtn{
+  width: 90px;
+  height: 35px;
+  margin-left: 10px;
+  background: #C4C4C4;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: 'Monda';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 29px;
+  color: #3E3B3B;
+}
+
+#emptybtn:hover{
+  background:#3E3B3B;
+  color: #C4C4C4;
+}
+#emptybtn:active{
+ transform: translateY(2px); 
+}
+
+.buttons:active{
+ transform: translateY(1px); 
+}
+
+#taskInp{
+border: none;
+width: 216px;
+height: 25px;
+border-radius: 25px;
+background: #C4C4C4;
+font-family: 'Monda';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 29px;
+color: #3E3B3B;
+outline: none;
+}
+
+#addButton{
+width: 200px;
+height: 41px;
+margin-top: 10px;
+background: #C4C4C4;
+border: none;
+border-radius: 25px;
+cursor: pointer;
+font-family: 'Monda';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 29px;
+color: #3E3B3B;
+display: block;
+}
+#addButton:hover{
+  background:#3E3B3B;
+  color: #C4C4C4;
+}
+#addButton:active{
+ transform: translateY(2px); 
+}
+#error{
+font-family: 'Monda';
+font-style: normal;
+font-weight: 700;
+font-size: 25px;
+line-height: 29px;
+color: red;
+}
