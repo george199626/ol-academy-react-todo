@@ -7,13 +7,19 @@ class Todo extends React.Component {
 
     this.state = {
       todos: [
-        { id: 1, text: 'Buy groceries', isDone: false, checked: false, },
+        { id: 1, text: 'Learn React.js', isDone: false, checked: false,},
       ],
+      editor: {
+isEditing: false,
+id: undefined,
+inputValue: "",
+      },
       currentInput: "",
       error: "",
       newTodo: "",
     };
     this.handleDelete = this.handleDelete.bind(this);
+   
   }
 
   handleOnInputChange = (e) => {
@@ -91,7 +97,38 @@ todoChecked = todoToChecked => {
 };
 
 //Edit Task
-//---------
+handleEdit = (id,inputValue)=>{
+ this.setState({
+    editor: {
+      id: id,
+      isEditing: true,
+      inputValue: inputValue
+    }
+  })
+}
+
+handleEditorChange = (e)=>{
+this.setState({
+  editor: {
+    ...this.state.editor,
+    inputValue: e.target.value
+  }
+})
+}
+
+handleSaveEdited = ()=>{
+  const todos = [...this.state.todos]
+  todos.map((todo)=>{
+    if(todo.id ===this.state.editor.id){
+      todo.text = this.state.editor.inputValue
+    }
+  })
+  this.setState({
+    todos: todos,
+    editor: {isEditing: false
+    }
+  })
+}
 
 render() {
     return (
@@ -121,8 +158,8 @@ render() {
           </p>
         <div>
           <ul>
-           {this.state.todos.map((todo) => (
-        <div>
+           {this.state.todos.map((todo,id) => (
+        
       <div id="checkDiv">
       <input
        id="check" 
@@ -133,15 +170,13 @@ render() {
       key={todo.id}>
       {todo.text}
       </li>
-       </div>
-              <button 
+       <div>
+              <button onClick={()=>this.handleEdit(todo.id, todo.text)}  
               className="buttons">
               Edit
               </button>
-              <input
-              id="taskInp" 
-              />
-                <button className="buttons">Save Edited</button>
+              </div>
+               
                 <button onClick={() => this.handleDone(todo.id)} className="buttons" >Done</button>
                 <button onClick={() => this.handleDelete(todo.id)} className="buttons">
                 Delete
@@ -150,6 +185,15 @@ render() {
                ))}
           </ul>
           </div>
+          {
+              this.state.editor.isEditing && (
+              <div>
+              <input value={this.state.editor.inputValue} onChange={this.handleEditorChange}
+              id="taskInp" 
+              />
+              <button onClick={this.handleSaveEdited} className="buttons">Save Edited</button>
+              </div>
+              )}   
           <button onClick={this.deleteAll} id="doneBtn">Delete All</button>
           <button onClick={this.handleDeleteDoneTodos} id="doneBtn">Delete Done Todos</button>
           <button onClick={this.handleDeleteCheckedTodos} id="doneBtn">Delete Checked</button>
